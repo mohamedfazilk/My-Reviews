@@ -1,6 +1,6 @@
-import React from 'react'
-import Review from './review';
-import {FaGithub} from 'react-icons/fa'
+import React, {useState}  from 'react'
+import Review from './Review';
+
 
 function App() {
   return <main>
