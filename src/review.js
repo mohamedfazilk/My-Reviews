@@ -6,18 +6,39 @@ const Review = () => {
  const [index, setIndex] = useState(0);
  const {name,image,job,text} = people[index];
 
+ //checking if it is greater than arrays index then return 0th index
+const checkNumber =(number) =>{
+  if(number > people.length - 1){
+    return 0
+  }
+//if it is lessthan arrays index like -1 then return last index
+  if(number < 0){
+    return people.length - 1
+  }
+  return number
+}
+
  const nextPerson = () =>{
    setIndex((index)=>{
     let newIndex = index + 1
-    return newIndex
+    return checkNumber(newIndex) 
    })
  }
 
  const prevPerson = () =>{
     setIndex ((index) =>{
      let newIndex = index - 1;
-     return newIndex 
+     return checkNumber(newIndex) 
     });}
+
+   const randomPerson = () =>{
+     let randomNumber = Math.floor( Math.random() * people.length)
+     if(randomNumber === index){
+       randomNumber = index + 1
+     }
+     setIndex(checkNumber(randomNumber))
+     console.log(randomNumber);
+   } 
    
 
 
@@ -37,7 +58,7 @@ const Review = () => {
     <button onClick={nextPerson} className='next-btn'><FaChevronRight/></button>
     </div>
  
-    <button className='random-btn'>surprise me</button>
+    <button onClick={randomPerson} className='random-btn'>surprise me</button>
   </article>
 }
 
