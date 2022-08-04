@@ -32,6 +32,7 @@ const checkNumber =(number) =>{
     });}
 
    const randomPerson = () =>{
+     //random() return random number upto 3 by mutltiplying array length
      let randomNumber = Math.floor( Math.random() * people.length)
      if(randomNumber === index){
        randomNumber = index + 1
